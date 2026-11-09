@@ -338,6 +338,7 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
     </div>
   </section>
 
+  <section id="promocoes" hidden style="padding-block:56px"><div style="max-width:1100px;margin:auto;padding-inline:max(20px,env(safe-area-inset-left,0px)) max(20px,env(safe-area-inset-right,0px))"><h2 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 20px">Promoções</h2><div id="vitrine" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px"></div></div></section>
   <section class="plantao">
     <div class="miolo">
       <div class="aviso">
@@ -499,6 +500,8 @@ window.lanturCRM = function (dados) {
   });
   montar();
 })();
+
+(function(){fetch("https://juoikznsufmbwemygtsh.supabase.co/rest/v1/rpc/listar_promos",{method:"POST",headers:{"Content-Type":"application/json",apikey:"sb_publishable_pNLoqD1Ta_4TkoHgZo8NYw__md2RpqN"},body:"{}"}).then(function(r){return r.json()}).then(function(l){if(!Array.isArray(l)||!l.length)return;function e(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}document.getElementById("vitrine").innerHTML=l.map(function(p){return '<a href="promo/?p='+encodeURIComponent(p.slug)+'" style="display:block;background:#fff;border-radius:14px;overflow:hidden;text-decoration:none;color:#0B1F4D;box-shadow:0 10px 26px rgba(10,42,82,.14)">'+(p.foto_url?'<img src="'+e(p.foto_url)+'" alt="" loading="lazy" style="width:100%;aspect-ratio:16/10;object-fit:cover;display:block">':'')+'<div style="padding:16px"><strong style="font-size:1.25rem">'+e(p.destino)+'</strong><div>Saindo de '+e(p.saindo)+'</div><div style="font-weight:800;color:#c4530f;margin-top:6px">'+p.parcelas+'x de '+Number(p.valor).toLocaleString("pt-BR",{style:"currency",currency:"BRL"})+'</div></div></a>'}).join("");document.getElementById("promocoes").hidden=false}).catch(function(){})})();
 </script>
 
 </body>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sua proposta de viagem | Lantur</title><meta name="robots" content="noindex"><meta name="theme-color" content="#003F7D">
+<meta property="og:title" content="Sua proposta de viagem"><meta property="og:description" content="A Lantur preparou esta viagem para você.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="../a/p.css"></head><body><div id="app"></div>
+<footer><div class="faixa" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="wrap"><div><strong>Lantur Agência de Viagem e Turismo Ltda</strong> · CNPJ 33.527.117/0001-87</div><div>Palmas/TO: Quadra 104 Sul, Av. LO-1, Lt 23, Plano Diretor Sul, CEP 77020-020</div><div>Balsas/MA: Rua Coronel Silva Neto, 1030, Centro, CEP 65800-000</div><div>Plantão 24h por ligação para embarques em até 48h: (63) 98128-7349</div></div></footer>
+<a class="flut" href="https://wa.me/5563981287349" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg></a>
+<script>
+var API="https://juoikznsufmbwemygtsh.supabase.co/rest/v1/rpc/",CH="sb_publishable_pNLoqD1Ta_4TkoHgZo8NYw__md2RpqN",NUM="5563981287349",A=document.getElementById("app"),Q=new URLSearchParams(location.search);
+function rpc(n,b,k){return fetch(API+n,{method:"POST",keepalive:!!k,headers:{"Content-Type":"application/json",apikey:CH},body:JSON.stringify(b)}).then(function(r){if(!r.ok)throw 0;return r.status==204?null:r.json()})}
+function e(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function R(v){return (Number(v)||0).toLocaleString("pt-BR",{style:"currency",currency:"BRL"})}
+function D(d){return d?String(d).slice(0,10).split("-").reverse().join("/"):""}
+function L(t){return String(t||"").split("\n").map(function(x){return x.trim()}).filter(Boolean)}
+function UL(t,c){var a=L(t);return a.length?'<ul class="lista '+(c||"")+'">'+a.map(function(x){return"<li>"+e(x)+"</li>"}).join("")+"</ul>":""}
+var F='<div class="faixa" aria-hidden="true"><i></i><i></i><i></i><i></i></div>',LG='<img class="logo" src="../fale-conosco/logo.svg" alt="Lantur, você por todo lugar">';
+function HERO(h){return '<div class="hero">'+'<div class="wrap">'+LG+h+'</div>'+F+'</div>'}
+function AG(){return '<section class="agencia"><div class="wrap"><img src="../fale-conosco/agencia.jpg" alt="Agência Lantur" loading="lazy"><div><h2>Agência de verdade, atendimento de verdade</h2><p>Há 14 anos no turismo, com lojas físicas em Palmas e Balsas.</p><p>Atendimento humanizado 24h no plantão, por ligação, para passagens com embarque em até 48 horas.</p></div></div></section>'}
+function MSG(t,p){A.innerHTML=HERO("")+'<div class="wrap msg"><h1 style="font-size:2rem">'+t+'</h1><p>'+p+'</p><a class="btn" href="../fale-conosco/">Pedir um novo orçamento</a></div>'}
+
+var C=Q.get("c")||"",P=Q.get("previa")==="1";
+function voo(v,i){return '<div class="bilhete"><header class="mono"><span>Voo '+(i+1)+(v.voo?" · "+e(v.voo):"")+'</span><span>'+D(v.data)+'</span></header><div class="corpo rota"><div><small class="mono">'+e(v.saida)+'</small><b>'+e(v.de)+'</b></div><i></i><div class="fim"><small class="mono">'+e(v.chegada)+'</small><b>'+e(v.para)+'</b></div></div></div>'+(v.espera?'<div class="espera">'+e(v.espera)+'</div>':'')}
+function ver(p){document.title="Sua viagem para "+p.titulo+" | Lantur";var dt=new Date(p.validade),gar=dt.toLocaleDateString("pt-BR")+" às "+dt.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
+var vs=(p.voos||[]).filter(function(v){return v.de||v.para||v.data});
+A.innerHTML=HERO('<div class="mono">Proposta exclusiva</div><h1>A Lantur preparou esta viagem para você, <span>'+e(p.cliente)+'</span></h1><p class="sub">Destino: '+e(p.titulo)+'</p>'+(p.foto_url?'<img class="foto" src="'+e(p.foto_url)+'" alt="'+e(p.titulo)+'">':''))+
+(vs.length?'<section><div class="wrap"><h2>Seus voos</h2><div class="voos">'+vs.map(voo).join("")+'</div></div></section>':'')+
+'<section style="padding-top:0"><div class="wrap"><h2>'+((p.opcoes||[]).length>1?"Escolha sua opção":"Sua viagem")+'</h2><div class="op">'+(p.opcoes||[]).map(function(o,i){return '<div class="bilhete"><header class="mono"><span>'+e(o.nome)+'</span></header><div class="corpo">'+(o.hotel?'<h3>'+e(o.hotel)+'</h3>':'')+(o.detalhes?'<p>'+e(o.detalhes)+'</p>':'')+'<div class="preco"><small>Valor</small><b>'+e(o.valor)+'</b></div><button class="btn" data-o="'+i+'">Quero fechar</button></div></div>'}).join("")+'</div></div></section>'+
+(L(p.inclui).length||L(p.nao_inclui).length?'<section style="padding-top:0"><div class="wrap dois">'+(L(p.inclui).length?'<div><h2>Inclui</h2>'+UL(p.inclui)+'</div>':'')+(L(p.nao_inclui).length?'<div><h2>Não inclui</h2>'+UL(p.nao_inclui,"nao")+'</div>':'')+'</div></section>':'')+
+(p.pagamento?'<section style="padding-top:0"><div class="wrap"><h2>Formas de pagamento</h2>'+UL(p.pagamento)+'</div></section>':'')+(p.obs?'<section style="padding-top:0"><div class="wrap"><p class="aviso">'+e(p.obs)+'</p></div></section>':'')+
+'<section class="fecho"><div class="wrap"><p class="mono">Tarifa garantida até '+gar+'</p><p class="tempo" id="tp"></p><h2>Vamos emitir?</h2><a class="btn" id="fec" href="#">Quero fechar agora</a></div></section>'+AG();
+var tp=document.getElementById("tp");(function t(){var r=dt-new Date();if(r<=0){location.reload();return}var h=Math.floor(r/36e5),m=Math.floor(r%36e5/6e4),s=Math.floor(r%6e4/1e3);tp.textContent=(h>48?Math.floor(h/24)+" dias":String(h).padStart(2,"0")+"h "+String(m).padStart(2,"0")+"m "+String(s).padStart(2,"0")+"s");setTimeout(t,1000)})();
+function fechar(o){var nm=o?o.nome:"";rpc("quero_fechar",{c:C,op:nm||""},1).catch(function(){});location.href="https://wa.me/"+NUM+"?text="+encodeURIComponent("Olá, Lantur! Sou "+p.cliente+" e quero fechar a viagem para "+p.titulo+(nm?" ("+nm+")":"")+". Proposta: "+C)}
+document.addEventListener("click",function(ev){var b=ev.target.closest("[data-o]");if(b)return fechar(p.opcoes[+b.dataset.o]);if(ev.target.id==="fec"){ev.preventDefault();fechar(p.opcoes.length===1?p.opcoes[0]:null)}});
+}
+rpc("ver_proposta",{c:C,contar:!P}).then(function(p){if(!p)return MSG("Proposta não encontrada","Confira o link que a Lantur enviou para você.");if(p.vencida)return MSG("Esta proposta venceu, "+e(p.cliente),"As tarifas mudam rápido. Peça uma nova cotação para "+e(p.titulo)+".");ver(p)}).catch(function(){MSG("Não consegui carregar","Tente de novo em instantes.")});
+</script></body></html>
