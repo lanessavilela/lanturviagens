@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="https://static.onertravel.com/widget/search/production/styles.css">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Lantur Viagens e Turismo</title>
 <meta name="description" content="Agência de viagens em Palmas/TO e Balsas/MA. Passagens, pacotes, cruzeiros, visto, passaporte, seguro viagem e aluguel de carro. Peça seu orçamento pelo WhatsApp.">
@@ -178,6 +179,23 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
 }
 </style>
 
+<style>
+/* Motor de busca Oner Travel: cores da Lantur por cima do verde padrão */
+.busca { background: var(--papel); color: var(--azul); }
+.busca .miolo { display: grid; gap: 20px; padding-block: 56px; }
+.busca .texto { display: grid; gap: 10px; }
+.busca .texto p { color: var(--texto-suave); max-width: 40em; }
+.busca #wrapper { min-height: 120px; min-width: 0; }
+#wrapper, #wrapper .ow-container, .ow-container, .ow-modal, .ow-modal-container-popover, .cdk-overlay-container {
+  --primary: #FF7A29 !important; --primary-400: #FF7A29 !important;
+  --accent: #003F7D !important; --accent-400: #003F7D !important;
+}
+.mat-calendar-body-selected, .mat-calendar-body-comparison-identical.mat-calendar-body-selected,
+.mat-calendar-body-in-comparison-range > .mat-calendar-body-selected { background-color: #FF7A29 !important; color: #fff !important; }
+.mat-calendar-body-in-range > .mat-calendar-body-comparison-identical,
+.mat-calendar-body-in-comparison-range.mat-calendar-body-in-range::after,
+.mat-calendar-body-in-range::before { background: #FFE3D1 !important; }
+</style>
 </head>
 <body>
 <header class="topo">
@@ -270,6 +288,20 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
       </div>
     </div>
   </section>
+
+  <section class="busca" id="busca">
+    <div class="miolo">
+      <div class="texto">
+        <span class="rotulo">Busca online</span>
+        <h2 class="titulo-secao">Busque sua viagem</h2>
+        <p>Pesquise passagens, hotéis e pacotes agora. Se preferir, a Lantur fecha tudo com você pelo WhatsApp.</p>
+      </div>
+      <div id="wrapper">
+        <befly-widget language="pt-br" new-tab="true"></befly-widget>
+      </div>
+    </div>
+  </section>
+  <script src="https://static.onertravel.com/widget/search/production/widget-befly.js"></script>
 
   <section class="grupo" id="grupo">
     <div class="miolo">
