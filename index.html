@@ -181,11 +181,16 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
 
 <style>
 /* Motor de busca Oner Travel: cores da Lantur por cima do verde padrão */
-.busca { background: var(--papel); color: var(--azul); }
-.busca .miolo { display: grid; gap: 20px; padding-block: 56px; }
-.busca .texto { display: grid; gap: 10px; }
-.busca .texto p { color: var(--texto-suave); max-width: 40em; }
-.busca #wrapper { min-height: 120px; min-width: 0; }
+.abas { padding: 6px; gap: 6px; justify-content: stretch; }
+.aba { flex: 1 1 0; min-width: 0; font: inherit; font-weight: 700; font-size: .95rem; line-height: 1.2; color: var(--ceu); background: transparent; border: 0; border-radius: 10px; padding: 12px 10px; cursor: pointer; }
+.aba:hover { color: var(--branco); }
+.aba.ativa { background: var(--laranja); color: var(--branco); }
+.aba:focus-visible { outline: 2px solid var(--branco); outline-offset: 2px; }
+.cartao.modo-busca { transform: none; }
+.painel-busca { display: grid; gap: 12px; padding: 20px 24px 24px; }
+.painel-busca[hidden], .painel-ajuda[hidden] { display: none; }
+.painel-dica { font-family: var(--corpo); color: var(--texto-suave); font-size: .95rem; margin: 0; }
+#wrapper { min-height: 160px; min-width: 0; color: var(--azul); }
 #wrapper, #wrapper .ow-container, .ow-container, .ow-modal, .ow-modal-container-popover, .cdk-overlay-container {
   --primary: #FF7A29 !important; --primary-400: #FF7A29 !important;
   --accent: #003F7D !important; --accent-400: #003F7D !important;
@@ -226,10 +231,17 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
       </div>
 
       <div class="cartao">
-        <div class="cartao-topo">
-          <span class="rotulo">Cartão de embarque</span>
-          <span class="rotulo">Orçamento</span>
+        <div class="cartao-topo abas" role="tablist" aria-label="Como você quer começar">
+          <button type="button" class="aba ativa" role="tab" id="aba-busca" aria-controls="painel-busca" aria-selected="true">Pesquisar agora</button>
+          <button type="button" class="aba" role="tab" id="aba-ajuda" aria-controls="painel-ajuda" aria-selected="false" tabindex="-1">Quero ajuda da Lantur</button>
         </div>
+        <div class="painel painel-busca" id="painel-busca" role="tabpanel" aria-labelledby="aba-busca">
+          <p class="painel-dica">Já sabe para onde vai? Pesquise passagens, hotéis e pacotes.</p>
+          <div id="wrapper">
+            <befly-widget language="pt-br" new-tab="true"></befly-widget>
+          </div>
+        </div>
+        <div class="painel painel-ajuda" id="painel-ajuda" role="tabpanel" aria-labelledby="aba-ajuda" hidden>
         <form id="pedido" autocomplete="on" novalidate>
           <div class="campo">
             <label for="cli-nome">Seu nome</label>
@@ -285,64 +297,23 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
           <p class="aviso-pedido" id="pedido-erro" role="status" hidden></p>
           <small>Ao informar seu WhatsApp, guardamos seu contato para retornar seu pedido, mesmo que você não conclua o envio. <a href="privacidade/">Política de Privacidade</a>.</small>
         </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="busca" id="busca">
-    <div class="miolo">
-      <div class="texto">
-        <span class="rotulo">Busca online</span>
-        <h2 class="titulo-secao">Busque sua viagem</h2>
-        <p>Pesquise passagens, hotéis e pacotes agora. Se preferir, a Lantur fecha tudo com você pelo WhatsApp.</p>
-      </div>
-      <div id="wrapper">
-        <befly-widget language="pt-br" new-tab="true"></befly-widget>
-      </div>
-    </div>
-  </section>
   <script src="https://static.onertravel.com/widget/search/production/widget-befly.js"></script>
+  <script>
+(function(){
+  var abas=[document.getElementById('aba-busca'),document.getElementById('aba-ajuda')];
+  var cartao=abas[0].closest('.cartao');
+  function abrir(i,foco){abas.forEach(function(a,k){var on=k===i;a.classList.toggle('ativa',on);a.setAttribute('aria-selected',on);a.tabIndex=on?0:-1;document.getElementById(a.getAttribute('aria-controls')).hidden=!on;});cartao.classList.toggle('modo-busca',i===0);if(foco)abas[i].focus();}
+  abas.forEach(function(a,k){a.addEventListener('click',function(){abrir(k)});a.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();abrir(1-k,true);}});});
+  if(location.hash==='#orcamento')abrir(1);else abrir(0);
+})();
+</script>
 
-  <section class="grupo" id="grupo">
-    <div class="miolo">
-      <div class="texto">
-        <span class="rotulo">Grupo Lantur no WhatsApp</span>
-        <h2 class="titulo-secao">Entre no grupo da Lantur</h2>
-        <p>Faça seu cadastro para receber promoções e novidades de viagem direto no seu WhatsApp.</p>
-      </div>
-      <div class="ficha">
-        <form id="cadastro" autocomplete="on" novalidate>
-          <div class="campo largo">
-            <label for="cad-nome">Esta mala é de:</label>
-            <input id="cad-nome" type="text" name="name" autocomplete="name" placeholder="Seu nome completo" required>
-          </div>
-          <div class="campo">
-            <label for="cad-whats">WhatsApp com DDD</label>
-            <input id="cad-whats" type="tel" inputmode="tel" name="tel" autocomplete="tel" placeholder="(63) 90000-0000" required>
-          </div>
-          <div class="campo">
-            <label for="cad-cidade">Cidade</label>
-            <input id="cad-cidade" type="text" name="city" placeholder="Sua cidade" required>
-          </div>
-          <div class="campo">
-            <label for="cad-email">E-mail (opcional)</label>
-            <input id="cad-email" type="email" name="email" autocomplete="email" placeholder="voce@email.com">
-          </div>
-          <div class="campo">
-            <label for="cad-sonho">Viagem dos sonhos (opcional)</label>
-            <input id="cad-sonho" type="text" placeholder="Para onde?">
-          </div>
-          <label class="aceite" for="cad-aceite">
-            <input id="cad-aceite" type="checkbox" required>
-            <span>Autorizo a Lantur a usar meus dados para me adicionar ao grupo e enviar ofertas de viagem. Posso pedir para sair a qualquer momento.</span>
-          </label>
-          <p class="aceite-nota">Ao informar seu WhatsApp, guardamos seu contato para retornar seu pedido, mesmo que você não conclua. Ofertas e grupo, só com a autorização acima.</p>
-          <a class="botao" id="cad-enviar" href="https://wa.me/5563981287349" target="_blank" rel="noopener">Quero entrar no grupo</a>
-          <p class="retorno" id="cad-retorno" role="status" hidden></p>
-        </form>
-      </div>
-    </div>
-  </section>
+  
 
   <section class="faixa-azul" id="servicos">
     <div class="miolo">
@@ -420,6 +391,47 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
             <a href="https://www.instagram.com/lanturviagens_balsas/" target="_blank" rel="noopener">@lanturviagens_balsas</a>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="grupo" id="grupo">
+    <div class="miolo">
+      <div class="texto">
+        <span class="rotulo">Grupo Lantur no WhatsApp</span>
+        <h2 class="titulo-secao">Entre no grupo da Lantur</h2>
+        <p>Faça seu cadastro para receber promoções e novidades de viagem direto no seu WhatsApp.</p>
+      </div>
+      <div class="ficha">
+        <form id="cadastro" autocomplete="on" novalidate>
+          <div class="campo largo">
+            <label for="cad-nome">Esta mala é de:</label>
+            <input id="cad-nome" type="text" name="name" autocomplete="name" placeholder="Seu nome completo" required>
+          </div>
+          <div class="campo">
+            <label for="cad-whats">WhatsApp com DDD</label>
+            <input id="cad-whats" type="tel" inputmode="tel" name="tel" autocomplete="tel" placeholder="(63) 90000-0000" required>
+          </div>
+          <div class="campo">
+            <label for="cad-cidade">Cidade</label>
+            <input id="cad-cidade" type="text" name="city" placeholder="Sua cidade" required>
+          </div>
+          <div class="campo">
+            <label for="cad-email">E-mail (opcional)</label>
+            <input id="cad-email" type="email" name="email" autocomplete="email" placeholder="voce@email.com">
+          </div>
+          <div class="campo">
+            <label for="cad-sonho">Viagem dos sonhos (opcional)</label>
+            <input id="cad-sonho" type="text" placeholder="Para onde?">
+          </div>
+          <label class="aceite" for="cad-aceite">
+            <input id="cad-aceite" type="checkbox" required>
+            <span>Autorizo a Lantur a usar meus dados para me adicionar ao grupo e enviar ofertas de viagem. Posso pedir para sair a qualquer momento.</span>
+          </label>
+          <p class="aceite-nota">Ao informar seu WhatsApp, guardamos seu contato para retornar seu pedido, mesmo que você não conclua. Ofertas e grupo, só com a autorização acima.</p>
+          <a class="botao" id="cad-enviar" href="https://wa.me/5563981287349" target="_blank" rel="noopener">Quero entrar no grupo</a>
+          <p class="retorno" id="cad-retorno" role="status" hidden></p>
+        </form>
       </div>
     </div>
   </section>
