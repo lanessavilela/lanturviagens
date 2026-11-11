@@ -219,6 +219,15 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
   .abertura .miolo { gap: 22px; padding-block: 18px 40px; }
   .painel-busca { padding-top: 12px; }
 }
+/* Celular: motor da Oner mais largo e abas compactas */
+@media (max-width: 860px) {
+  .painel-busca { padding: 10px 6px 14px; }
+  #wrapper .ow-container { padding-left: 4px !important; padding-right: 4px !important; }
+  #wrapper .mat-tab-label { min-width: 0 !important; padding: 0 10px !important; font-size: 12.5px !important; }
+  #wrapper .mat-tab-label .mat-icon { font-size: 22px; }
+  #wrapper .mat-form-field { font-size: 13px; }
+  #wrapper .mat-form-field-wrapper { padding-bottom: .6em !important; }
+}
 </style>
 </head>
 <body>
