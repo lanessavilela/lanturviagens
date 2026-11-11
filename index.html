@@ -210,6 +210,15 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
 /* Parte pessoal com letra manuscrita */
 .historia .relato .titulo-secao { font-family: "Sacramento", cursive; font-weight: 400; font-size: clamp(3.2rem, 9vw, 4.8rem); line-height: 1.05; letter-spacing: 0; }
 .historia .relato p.assinatura { font-family: "Sacramento", cursive; font-size: 3rem; line-height: 1.1; color: var(--laranja); margin-top: 4px; transform: rotate(-3deg); transform-origin: left; }
+/* Celular: topo enxuto */
+@media (max-width: 860px) {
+  .abertura .selo, .abertura .lema, .abertura .cidades, .painel-dica { display: none; }
+  .abertura h1 { font-size: clamp(2.4rem, 11vw, 3rem); line-height: 1; }
+  .abertura .texto { gap: 12px; }
+  .abertura .chamada { font-size: .98rem; }
+  .abertura .miolo { gap: 22px; padding-block: 18px 40px; }
+  .painel-busca { padding-top: 12px; }
+}
 </style>
 </head>
 <body>
