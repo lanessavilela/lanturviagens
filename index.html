@@ -9,7 +9,7 @@
 <meta name="description" content="Agência de viagens em Palmas/TO e Balsas/MA. Passagens, pacotes, cruzeiros, visto, passaporte, seguro viagem e aluguel de carro. Peça seu orçamento pelo WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Mono:wght@400;500&family=Montserrat:wght@500;600;700;800&display=swap">
 <style>
 /* Layout: o azul da capa de mala, com globo e rota pontilhada, abre a página com um cartão de embarque que vira pedido de orçamento. */
 :root {
@@ -200,6 +200,16 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
 .mat-calendar-body-in-range > .mat-calendar-body-comparison-identical,
 .mat-calendar-body-in-comparison-range.mat-calendar-body-in-range::after,
 .mat-calendar-body-in-range::before { background: #FFE3D1 !important; }
+/* Celular: pesquisa aparece na primeira tela */
+@media (max-width: 860px) {
+  .abertura h1 { font-size: clamp(3rem, 13.5vw, 4.2rem); }
+  .abertura .chamada { font-size: 1.02rem; }
+  .abertura .botao-grupo { display: none; }
+  .marca img { height: 74px; }
+}
+/* Parte pessoal com letra manuscrita */
+.historia .relato .titulo-secao { font-family: "Caveat", cursive; font-weight: 700; font-size: clamp(2.6rem, 7vw, 4rem); line-height: 1.05; letter-spacing: 0; }
+.historia .relato p.assinatura { font-family: "Caveat", cursive; font-size: 2.4rem; line-height: 1.1; color: var(--laranja); margin-top: 4px; transform: rotate(-3deg); transform-origin: left; }
 </style>
 </head>
 <body>
@@ -360,6 +370,7 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
         <p>Sou Lanessa Vilela e sou apaixonada por viajar. Entrei no turismo aos 17 anos e nunca mais saí.</p>
         <p>Há 14 anos ajudo pessoas a tirar a viagem do papel, da escolha do destino à volta para casa. Cuido de cada detalhe como se a viagem fosse minha, porque sei o que faz diferença quando você está longe de casa.</p>
         <p>Na Lantur, você sabe com quem está falando e tem a quem chamar se precisar.</p>
+        <p class="assinatura">Com carinho, Lanessa</p>
       </div>
     </div>
   </section>
