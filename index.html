@@ -267,6 +267,19 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
   .picote::before, .picote::after { width: 20px; height: 20px; top: -11px; }
 }
 .unidade h3 { font-size: 1.35rem; line-height: 1.2; font-weight: 700; }
+/* Onde estamos: discreto */
+.unidades { background: var(--papel); }
+.unidades .miolo { padding-block: 36px !important; gap: 10px !important; }
+.titulo-unidades { font-family: var(--display); font-size: 1.05rem; font-weight: 700; margin: 0; color: var(--azul); }
+.nota-unidades { font-size: .88rem; color: var(--texto-suave); margin: 0 0 6px; }
+.lista-unidades { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 18px !important; }
+.unidade { border-top: 1px solid var(--linha) !important; padding-top: 10px !important; gap: 2px !important; }
+.unidade .rotulo { font-size: .62rem; }
+.unidade h3 { font-size: .95rem !important; font-weight: 700; }
+.unidade p { font-size: .78rem !important; line-height: 1.45 !important; margin: 0; }
+.unidade .acoes { gap: 4px 12px !important; padding-top: 4px !important; }
+.unidade .acoes a, .unidade .acoes .botao { background: none !important; padding: 0 !important; font-size: .78rem !important; font-weight: 600; color: var(--azul-medio) !important; text-decoration: underline; text-underline-offset: 3px; border-radius: 0; width: auto !important; display: inline !important; }
+@media (max-width: 400px) { .lista-unidades { grid-template-columns: minmax(0, 1fr) !important; } }
 </style>
 </head>
 <body>
@@ -435,7 +448,8 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
 
   <section class="unidades" id="unidades">
     <div class="miolo">
-      <h2 class="titulo-secao">Onde estamos</h2>
+      <h2 class="titulo-unidades">Nossas agências físicas</h2>
+      <p class="nota-unidades">Atendemos online clientes de todo o Brasil e do exterior. Se preferir atendimento presencial, estamos aqui:</p>
       <div class="lista-unidades">
         <article class="unidade">
           <span class="rotulo">Sede</span>
