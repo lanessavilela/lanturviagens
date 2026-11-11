@@ -209,7 +209,7 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
 }
 /* Parte pessoal com letra manuscrita */
 .historia .relato .titulo-secao { font-family: "Sacramento", cursive; font-weight: 400; font-size: clamp(3.2rem, 9vw, 4.8rem); line-height: 1.05; letter-spacing: 0; }
-.historia .relato p.assinatura { font-family: "Sacramento", cursive; font-size: 3rem; line-height: 1.1; color: var(--laranja); margin-top: 4px; transform: rotate(-3deg); transform-origin: left; }
+.historia .relato p.assinatura { font-family: "Sacramento", cursive; font-size: 3rem; line-height: 1.1; color: var(--laranja); margin-top: 4px; }
 /* Celular: topo enxuto */
 @media (max-width: 860px) {
   .abertura .selo, .abertura .lema, .abertura .cidades, .painel-dica { display: none; }
@@ -227,6 +227,29 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
   #wrapper .mat-tab-label .mat-icon { font-size: 22px; }
   #wrapper .mat-form-field { font-size: 13px; }
   #wrapper .mat-form-field-wrapper { padding-bottom: .6em !important; }
+}
+/* Celular: textos das seções mais compactos */
+@media (max-width: 860px) {
+  body { font-size: 16px; }
+  .titulo-secao { font-size: clamp(1.7rem, 7.5vw, 2.2rem); }
+  .unidades .miolo { padding-block: 48px; gap: 24px; }
+  .lista-unidades { gap: 26px; }
+  .unidade { gap: 6px; padding-top: 14px; border-top-width: 2px; }
+  .unidade h3 { font-size: 1.6rem; }
+  .unidade p { font-size: .92rem; line-height: 1.5; }
+  .unidade .acoes .botao { padding: 10px 16px; font-size: .95rem; }
+  .unidade .acoes a:not(.botao) { font-size: .95rem; }
+}
+/* Celular: passos compactos, número ao lado */
+@media (max-width: 860px) {
+  .passos .miolo { padding-block: 48px; gap: 24px; }
+  .passos ol { gap: 20px; }
+  .passos li { grid-template-columns: 52px minmax(0, 1fr); column-gap: 14px; row-gap: 2px; }
+  .passos .numero { grid-row: span 2; font-size: 2.4rem; text-align: center; align-self: start; }
+  .passos h3 { font-size: 1.1rem; align-self: end; }
+  .passos p { font-size: .95rem; line-height: 1.5; }
+  .historia .relato p.assinatura { font-size: 2.2rem; }
+  .historia .relato .titulo-secao { font-size: 2.7rem; }
 }
 </style>
 </head>
@@ -388,7 +411,7 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
         <p>Sou Lanessa Vilela e sou apaixonada por viajar. Entrei no turismo aos 17 anos e nunca mais saí.</p>
         <p>Há 14 anos ajudo pessoas a tirar a viagem do papel, da escolha do destino à volta para casa. Cuido de cada detalhe como se a viagem fosse minha, porque sei o que faz diferença quando você está longe de casa.</p>
         <p>Na Lantur, você sabe com quem está falando e tem a quem chamar se precisar.</p>
-        <p class="assinatura">Com carinho, Lanessa</p>
+        <p class="assinatura">Com carinho,<br>Lanessa</p>
       </div>
     </div>
   </section>
