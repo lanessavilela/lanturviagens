@@ -281,6 +281,17 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
 .unidade .acoes a, .unidade .acoes .botao { background: none !important; padding: 0 !important; font-size: .78rem !important; font-weight: 600; color: var(--azul-medio) !important; text-decoration: underline; text-underline-offset: 3px; border-radius: 0; width: auto !important; display: inline !important; }
 @media (max-width: 400px) { .lista-unidades { grid-template-columns: minmax(0, 1fr) !important; } }
 </style>
+<script>
+window.LANTUR_PIXEL_ID="1136692795727331";
+(function(){var id=window.LANTUR_PIXEL_ID;if(!id)return;
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init',id);fbq('track','PageView');
+document.addEventListener('click',function(ev){var path=ev.composedPath?ev.composedPath():[ev.target];for(var i=0;i<path.length;i++){var el=path[i];if(!el||!el.tagName)continue;
+var href=el.getAttribute&&el.getAttribute('href')||'';if(/wa\.me|whatsapp/i.test(href)){fbq('track','Contact');return;}
+var txt=(el.innerText||el.textContent||'').trim().toUpperCase();if((el.tagName==='BUTTON'||el.getAttribute&&el.getAttribute('role')==='button')&&txt.indexOf('BUSCAR')===0){fbq('track','Search');return;}}},true);
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1136692795727331&ev=PageView&noscript=1"></noscript>
 </head>
 <body>
 <header class="topo">
