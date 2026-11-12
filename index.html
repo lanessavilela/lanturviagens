@@ -296,6 +296,8 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
   .painel-busca { padding: 10px 18px 16px; gap: 8px; }
   #wrapper { min-height: 120px; }
   #wrapper .mat-form-field-infix { min-width: 170px !important; }
+  #wrapper .mat-form-field { min-width: 200px !important; }
+  #wrapper *:has(> .mat-form-field) { min-width: 200px !important; flex-grow: 1; }
 }
 }
 </style>
