@@ -310,6 +310,7 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
   .lojas-final a { font-weight: 600; text-underline-offset: 3px; }
 }
 .lojas-final { display: none; }
+.bilhete-busca { display: none; }
 /* Computador: topo enxuto e buscador em largura total (celular não muda) */
 @media (min-width: 861px) {
   .abertura .miolo { grid-template-columns: minmax(0, 1fr); gap: 18px; padding-block: 22px 40px; }
@@ -325,6 +326,10 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
   .painel-busca { padding: 10px 18px 16px; gap: 8px; }
   #wrapper { min-height: 120px; }
   .abertura .cartao:not(.modo-busca) { width: min(680px, 100%); margin-inline: auto; transform: rotate(-1deg); }
+  .abertura .cartao.modo-busca { width: min(880px, 100%); margin-inline: auto; }
+  .bilhete-busca { display: flex !important; margin: 0 0 4px; }
+  .abertura .cartao.modo-busca .painel-dica { display: none; }
+  #wrapper .ow-container { padding-left: 0 !important; padding-right: 0 !important; max-width: none !important; box-shadow: none !important; }
   .abertura .cartao:not(.modo-busca) .cartao-topo.abas .aba { flex: 1 1 0; }
   #wrapper napp-autocomplete-airport { display: block; width: 100%; }
   #wrapper form.ow-form { display: flex !important; flex-wrap: wrap !important; align-items: center !important; gap: 12px 18px !important; }
@@ -384,6 +389,7 @@ var noBuscador=el.closest&&el.closest('befly-widget,#wrapper');if(botao&&noBusca
           <button type="button" class="aba" role="tab" id="aba-ajuda" aria-controls="painel-ajuda" aria-selected="false" tabindex="-1">Quero ajuda da Lantur</button>
         </div>
         <div class="painel painel-busca" id="painel-busca" role="tabpanel" aria-labelledby="aba-busca">
+          <div class="bilhete-topo bilhete-busca" aria-hidden="true"><span>Cartão de embarque</span><span class="bilhete-aviao">✈</span><span>Pesquisa</span></div>
           <p class="painel-dica">Já sabe para onde vai? Pesquise passagens, hotéis e pacotes.</p>
           <div id="wrapper">
             <befly-widget language="pt-br" new-tab="true"></befly-widget>
