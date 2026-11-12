@@ -280,6 +280,20 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
 .unidade .acoes { gap: 4px 12px !important; padding-top: 4px !important; }
 .unidade .acoes a, .unidade .acoes .botao { background: none !important; padding: 0 !important; font-size: .78rem !important; font-weight: 600; color: var(--azul-medio) !important; text-decoration: underline; text-underline-offset: 3px; border-radius: 0; width: auto !important; display: inline !important; }
 @media (max-width: 400px) { .lista-unidades { grid-template-columns: minmax(0, 1fr) !important; } }
+
+/* Computador: buscador em largura total abaixo do título (celular não muda) */
+@media (min-width: 861px) {
+  .abertura .miolo { grid-template-columns: minmax(0, 1fr); gap: 30px; padding-block: 36px 60px; }
+  .abertura .texto { grid-template-columns: auto minmax(0, 1fr); column-gap: 56px; row-gap: 14px; align-items: center; }
+  .abertura .texto > * { grid-column: 2; }
+  .abertura .texto h1 { grid-column: 1; grid-row: 1 / span 6; font-size: clamp(4.2rem, 7.2vw, 6.6rem); line-height: .95; padding-top: .06em; }
+  .abertura .texto h1 span { display: block; }
+  .cartao, .cartao.modo-busca { transform: none; }
+  .cartao-topo.abas { justify-content: flex-start; }
+  .cartao-topo.abas .aba { flex: 0 1 270px; }
+  .painel-busca { padding: 18px 28px 22px; }
+  #wrapper { min-height: 120px; }
+}
 </style>
 <script>
 window.LANTUR_PIXEL_ID="1136692795727331";
