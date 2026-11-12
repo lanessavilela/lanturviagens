@@ -288,7 +288,8 @@ window.LANTUR_PIXEL_ID="1136692795727331";
 fbq('init',id);fbq('track','PageView');
 document.addEventListener('click',function(ev){var path=ev.composedPath?ev.composedPath():[ev.target];for(var i=0;i<path.length;i++){var el=path[i];if(!el||!el.tagName)continue;
 var href=el.getAttribute&&el.getAttribute('href')||'';if(/wa\.me|whatsapp/i.test(href)){fbq('track','Contact');return;}
-var txt=(el.innerText||el.textContent||'').trim().toUpperCase();if((el.tagName==='BUTTON'||el.getAttribute&&el.getAttribute('role')==='button')&&txt.indexOf('BUSCAR')===0){fbq('track','Search');return;}}},true);
+var txt=(el.innerText||el.textContent||el.value||'').trim().toUpperCase();var botao=el.tagName==='BUTTON'||el.tagName==='INPUT'||el.getAttribute&&el.getAttribute('role')==='button';
+var noBuscador=el.closest&&el.closest('befly-widget,#wrapper');if(botao&&noBuscador&&(/^(BUSCAR|PESQUISAR|PROCURAR)/.test(txt)||el.type==='submit')){var agora=Date.now();if(agora-(window.__lanturBusca||0)>3000){window.__lanturBusca=agora;fbq('track','Search',{content_category:'Buscador Oner'});}return;}}},true);
 })();
 </script>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1136692795727331&ev=PageView&noscript=1"></noscript>
@@ -596,6 +597,7 @@ window.lanturCRM = function (dados) {
     if (msg) { e.preventDefault(); return; }
     atualizar();
     window.lanturCRM(dadosPedido(true));
+    if (window.fbq) fbq("track", "Lead", { content_name: "Orçamento do site" });
   });
   atualizar();
 })();
