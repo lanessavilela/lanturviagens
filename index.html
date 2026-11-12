@@ -281,6 +281,29 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
 .unidade .acoes a, .unidade .acoes .botao { background: none !important; padding: 0 !important; font-size: .78rem !important; font-weight: 600; color: var(--azul-medio) !important; text-decoration: underline; text-underline-offset: 3px; border-radius: 0; width: auto !important; display: inline !important; }
 @media (max-width: 400px) { .lista-unidades { grid-template-columns: minmax(0, 1fr) !important; } }
 
+/* Computador: site mais enxuto e fácil de ler (celular não muda) */
+@media (min-width: 861px) {
+  body { font-size: 16px; }
+  .titulo-secao { font-size: clamp(1.8rem, 2.8vw, 2.3rem); }
+  .faixa-azul .miolo { padding-block: 44px; gap: 20px; }
+  .painel-linha { padding: 10px 0; }
+  .painel-linha strong { font-size: 1rem; }
+  .passos .miolo { padding-block: 44px; gap: 22px; }
+  .passos ol { gap: 32px; }
+  .passos .numero { font-size: 2.4rem; }
+  .passos h3 { font-size: 1.12rem; }
+  .plantao .miolo { padding-block: 24px; }
+  .plantao h2 { font-size: 1.5rem; }
+  .historia .miolo { grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 44px; padding-block: 44px; }
+  .relato { gap: 10px; }
+  .relato p { font-size: 1rem; }
+  .historia .relato .titulo-secao { font-size: clamp(2.2rem, 3vw, 2.7rem); }
+  .historia .relato p.assinatura { font-size: 2rem; }
+  .grupo .miolo { padding-block: 44px; gap: 44px; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); }
+  .grupo .texto p { font-size: 1rem; }
+  .final .miolo { padding-block: 30px; }
+  .final h2 { font-size: clamp(2rem, 3.4vw, 2.8rem); }
+}
 /* Computador: topo enxuto e buscador em largura total (celular não muda) */
 @media (min-width: 861px) {
   .abertura .miolo { grid-template-columns: minmax(0, 1fr); gap: 18px; padding-block: 22px 40px; }
