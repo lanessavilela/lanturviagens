@@ -281,6 +281,34 @@ h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; line
 .unidade .acoes a, .unidade .acoes .botao { background: none !important; padding: 0 !important; font-size: .78rem !important; font-weight: 600; color: var(--azul-medio) !important; text-decoration: underline; text-underline-offset: 3px; border-radius: 0; width: auto !important; display: inline !important; }
 @media (max-width: 400px) { .lista-unidades { grid-template-columns: minmax(0, 1fr) !important; } }
 
+/* Computador: site mais enxuto e fácil de ler (celular não muda) */
+@media (min-width: 861px) {
+  body { font-size: 16px; }
+  .titulo-secao { font-size: clamp(1.8rem, 2.8vw, 2.3rem); }
+  .faixa-azul .miolo { padding-block: 44px; gap: 20px; }
+  .painel-linha { padding: 10px 0; }
+  .painel-linha strong { font-size: 1rem; }
+  .passos .miolo { padding-block: 44px; gap: 22px; }
+  .passos ol { gap: 32px; }
+  .passos .numero { font-size: 2.4rem; }
+  .passos h3 { font-size: 1.12rem; }
+  .plantao .miolo { padding-block: 24px; }
+  .plantao h2 { font-size: 1.5rem; }
+  .historia .miolo { grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 44px; padding-block: 44px; }
+  .relato { gap: 10px; }
+  .relato p { font-size: 1rem; }
+  .historia .relato .titulo-secao { font-size: clamp(2.2rem, 3vw, 2.7rem); }
+  .historia .relato p.assinatura { font-size: 2rem; }
+  .grupo .miolo { padding-block: 44px; gap: 44px; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); }
+  .grupo .texto p { font-size: 1rem; }
+  .final .miolo { padding-block: 30px; }
+  .final h2 { font-size: clamp(2rem, 3.4vw, 2.8rem); }
+  .unidades { display: none; }
+  .lojas-final { display: grid !important; gap: 6px; margin-top: 14px; padding-top: 16px; border-top: 1px solid rgb(11 31 77 / .25); font-size: .92rem; color: var(--azul); }
+  .lojas-final .lojas-titulo { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 2px; }
+  .lojas-final a { font-weight: 600; text-underline-offset: 3px; }
+}
+.lojas-final { display: none; }
 /* Computador: topo enxuto e buscador em largura total (celular não muda) */
 @media (min-width: 861px) {
   .abertura .miolo { grid-template-columns: minmax(0, 1fr); gap: 18px; padding-block: 22px 40px; }
@@ -328,7 +356,7 @@ var noBuscador=el.closest&&el.closest('befly-widget,#wrapper');if(botao&&noBusca
       <a href="#grupo">Grupo</a>
       <a href="#servicos">Serviços</a>
       <a href="#como-funciona">Como funciona</a>
-      <a href="#unidades">Unidades</a>
+      <a href="#lojas">Unidades</a>
       <a class="botao" href="https://wa.me/5563981287349?text=Ol%C3%A1%2C%20Lantur!%20Quero%20planejar%20uma%20viagem." target="_blank" rel="noopener">WhatsApp</a>
     </nav>
   </div>
@@ -522,6 +550,12 @@ var noBuscador=el.closest&&el.closest('befly-widget,#wrapper');if(botao&&noBusca
         <span class="rotulo">Grupo Lantur no WhatsApp</span>
         <h2 class="titulo-secao">Entre no grupo da Lantur</h2>
         <p>Faça seu cadastro para receber promoções e novidades de viagem direto no seu WhatsApp.</p>
+        <div class="lojas-final" id="lojas">
+          <span class="lojas-titulo">Nossas agências físicas</span>
+          <span><b>Palmas/TO</b> · Quadra 104 Sul, Av. LO-1, Lt 23 · <a href="https://www.google.com/maps/search/?api=1&query=Quadra%20104%20Sul%2C%20Av.%20LO-1%2C%20Lt%2023%2C%20Palmas%20-%20TO%2C%2077020-020" target="_blank" rel="noopener">Ver no mapa</a></span>
+          <span><b>Balsas/MA</b> · Rua Coronel Silva Neto, 1030, Centro · <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Coronel%20Silva%20Neto%2C%201030%2C%20Centro%2C%20Balsas%20-%20MA%2C%2065800-000" target="_blank" rel="noopener">Ver no mapa</a></span>
+          <span>Seg. a sex. 9h às 18h · Sáb. 9h às 13h</span>
+        </div>
       </div>
       <div class="ficha">
         <form id="cadastro" autocomplete="on" novalidate>
