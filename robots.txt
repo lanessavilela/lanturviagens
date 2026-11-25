@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /sistema/
+
+Sitemap: http://www.lanturviagens.com.br/sitemap.xml
